@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Weather Searcher</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    {% include 'navBar.html' %}
+  
+    <div class="mx-auto p-4 bg-green-300 h-screen flex justify-center pt-32">
+        <div class="flex flex-wrap">
+            <div class="w-full px-2">
+                <div class="text-white px-6 relative rounded-lg overflow-hidden shadow-xl mb-4 w-full bg-white">
+                    <div class="px-6 py-6 relative text-black">
+                        <div class="flex mb-4 justify-between items-center">
+                            <div>
+                                <h5 class="mb-0 font-bold text-xl text-red-800">{{name}},{{country}}</h5>
+                                <h6 class="mb-0">{{datetime}}</h6><small>{{weather_type}}</small>
+                            </div>
+                            <div class="text-right">
+                                <h3 class="font-bold text-4xl mb-0 text-red-800"><span>{{temp}}</span></h3>
+                            </div>
+                        </div>
+                        <div class="sm:flex justify-between items-center flex-wrap">
+                            <div class="w-full sm:w-1/2">
+                                <div class="flex mb-2 justify-between items-center"><span>Temp</span><small class="px-2 inline-block">{{temp}}</small></div>
+                            </div>
+                            <div class="w-full sm:w-1/2">
+                                <div class="flex mb-2 justify-between items-center"><span>Feels like</span><small class="px-2 inline-block">{{feels_like}}</small></div>
+                            </div>
+                            <div class="w-full sm:w-1/2">
+                                <div class="flex mb-2 justify-between items-center"><span>Latitude</span><small class="px-2 inline-block">{{lat}}</small></div>
+                            </div>
+                            <div class="w-full sm:w-1/2">
+                                <div class="flex mb-2 justify-between items-center"><span>Longitude</span><small class="px-2 inline-block">{{lon}}</small></div>
+                            </div>
+                            <div class="w-full sm:w-1/2">
+                                <div class="flex mb-2 justify-between items-center"><span>Pressure</span><small class="px-2 inline-block">{{pressure}}</small></div>
+                            </div>
+                            <div class="w-full sm:w-1/2">
+                                <div class="flex mb-2 justify-between items-center"><span>Humidity</span><small class="px-2 inline-block">{{humidity}}</small></div>
+                            </div>
+                            <div class="w-full sm:w-1/2">
+                                <div class="flex mb-2 justify-between items-center"><span>Visibility</span><small class="px-2 inline-block">{{visibility}}</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <form action='/home'>
+                            {% csrf_token %}
+                        <button type="submit" class="bg-green-300 text-black my-5 rounded-md py-5 w-full font-bold hover:bg-green-500 hover:text-white">Search Again</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </body>
+</html>
